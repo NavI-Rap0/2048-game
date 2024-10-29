@@ -60,3 +60,79 @@
     }
   }
 }
+
+@media (max-width: 499px) {
+  @for $row from 0 through 3 {
+    
+    @for $column from 0 through 3 {
+      .position_#{$row}_#{$column}:not(.isMoving) {
+        top: calc(20vw * #{$row} + 2vw * #{$row});
+        left: calc(20vw * #{$column} + 2vw * #{$column});
+        margin: 1vw;
+        padding: 0vw;
+      }
+    }
+  }
+  @for $row from 0 through 3 {
+    @for $column from 0 through 3 {
+      .position_#{$row}_#{$column}:not(.isMoving) {
+        top: 20vw * $row + 2vw * $row;
+        left: 20vw * $column + 2vw * $column;
+      }
+    }
+  }
+  
+  @for $fromRow from 0 through 3 {
+    @for $toRow from 0 through 3 {
+      $name: row_from_#{$fromRow}_to_#{$toRow};
+  
+      @if $fromRow == $toRow {
+        .#{$name} {
+          top: 20vw * $toRow + 2vw * $toRow;
+        }
+      } @else {
+        .#{$name} {
+          animation-duration: 0.2s;
+          animation-name: $name;
+          animation-fill-mode: forwards;
+        }
+  
+        @keyframes #{$name} {
+          from {
+            top: 20vw * $fromRow + 2vw * $fromRow
+          }
+          to {
+            top: 20vw * $toRow + 2vw * $toRow
+          }
+        }
+      }
+    }
+  }
+  
+  @for $fromColumn from 0 through 3 {
+    @for $toColumn from 0 through 3 {
+      $name: column_from_#{$fromColumn}_to_#{$toColumn};
+  
+      @if $fromColumn == $toColumn {
+        .#{$name} {
+          left: 20vw * $toColumn + 2vw * $toColumn;
+        }
+      } @else {
+        .#{$name} {
+          animation-duration: 0.2s;
+          animation-name: $name;
+          animation-fill-mode: forwards;
+        }
+  
+        @keyframes #{$name} {
+          from {
+            left: 20vw * $fromColumn + 2vw * $fromColumn;
+          }
+          to {
+            left: 20vw * $toColumn + 2vw * $toColumn;
+          }
+        }
+      }
+    }
+  }
+}

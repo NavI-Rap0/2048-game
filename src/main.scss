@@ -41,37 +41,46 @@ body {
 .details-box {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 10px 10px 0;
   justify-content: space-between;
 }
 
 .resetButton {
+  display: flex;
+  justify-content: center;
+  width: 210px;
+  height: 100px;
+  align-items: center;
   background-color: #3d2963;
   color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   font-size: 25px;
-  padding: 10px 20px;
   border-radius: 7px;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition: all 0.5s ease;
   &:hover {
-    background-color: #d3386a;
+    background: radial-gradient(circle, #d3386a 30%, #3d2963 80%);
     color: rgba(255, 255, 255, 1);
   }
 }
 
-.score-header {
-  font-size: 50%;
-}
 
 .score-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   background-color: #3d2963;
   color: rgba(255, 255, 255, 0.5);
-  min-width: 50px;
-  width: 70px;
-  padding: 5px 15px;
+  width: 210px;
+  height: 100px;
+  text-align: center;
   border-radius: 7px;
 }
 
+.cell {
+    position: relative;
+
+}
 .cell,
 .tile {
   width: 100px;
@@ -91,59 +100,79 @@ body {
 
 .tile0 {
   background-color: #dcb;
+  background-position: center;
 }
 
 .tile2 {
   background-color: #eee;
   background-image: url(./img/2.gif);
+  background-position: center;
+  background-size: contain;
+
 }
 
 .tile4 {
   background-color: #eec;
   background-image: url(./img/4.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .tile8 {
   color: #ffe;
   background-image: url(./img/8.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .tile16 {
   color: #ffe;
   background-image: url(./img/16.gif);
+  background-position: center;
+  background-clip: unset;
+  background-size: contain;
 }
 
 .tile32 {
   color: #ffe;
   background-image: url(./img/32.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .tile64 {
   color: #ffe;
   background-image: url(./img/64.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .tile128 {
   color: #ffe;
   background-image: url(./img/128.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .tile256 {
   color: #ffe;
   background-image: url(./img/256.gif);
-  font-size: 45px;
+  background-position: center;
+  background-size: contain;
 }
 
 .tile512 {
+  background-position: center;
+  background-size: contain;
   color: #ffe;
   background-image: url(./img/512.gif);
-  font-size: 45px;
 }
 
 .tile1024 {
+  background-size: contain;
+  background-position: center;
   color: #fff;
   background-image: url(./img/1024.gif);
-  font-size: 35px;
 }
 
 .tile2048 {
@@ -239,4 +268,56 @@ body {
 
 .overlay .message {
   color: #666;
+}
+
+@media (max-width: 499px) {
+  .body {
+    width: 90vw;
+    margin: auto;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .board {
+    width: 90vw;
+    height: 90vw;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .details-box {
+    font-size: 4.5;
+    flex-direction: row;
+    width: 86vw;
+    height: 20vw;
+    gap: 1vw;
+    padding: 0;
+    margin: 2vw 1vw 2vw 1vw;
+  }
+
+  .resetButton {
+    font-size: 5vw;
+  }
+
+  .score-box{
+    font-size: 4.5;
+    flex-direction: row;
+    .score-header {
+      font-size: 5vw;
+    }
+    div {
+      font-size: 7vw;
+    }
+  }
+
+  .cell,
+  .tile {
+    width: 20vw;
+    height: 20vw;
+    margin: 1vw;
+  }
+
 }
