@@ -28,16 +28,17 @@ const BoardView = () => {
 
   useSwipe(
     useCallback((swipeDirection) => {
-      const directions = {
+      const DIRECTION_KEYS = {
         up: 1,
         right: 2,
         down: 3,
         left: 0,
       };
-      if (directions[swipeDirection] !== undefined) {
-        handleMove(directions[swipeDirection]);
+      const direction = DIRECTION_KEYS[swipeDirection.toLowerCase()]; // Використовуємо toLowerCase для коректності
+      if (direction !== undefined) {
+        handleMove(direction);
       }
-    }, [handleMove])
+    }, [handleMove]) 
   );
 
   const resetGame = useCallback(() => {
@@ -48,16 +49,16 @@ const BoardView = () => {
     board.cells.map((row, rowIndex) => (
       <div key={rowIndex}>
         {row.map((col, colIndex) => (
-          <Cell key={rowIndex * board.size + colIndex} />
+          <Cell key={`${rowIndex}-${colIndex}`} />
         ))}
       </div>
     ))
-  ), [board.cells, board.size]);
+  ), [board.cells]);
 
   const tiles = useMemo(() => (
     board.tiles
       .filter((tile) => tile.value !== 0)
-      .map((tile, index) => <Tile tile={tile} key={index} />)
+      .map((tile, index) => <Tile tile={tile} key={tile.id || index} />)
   ), [board.tiles]);
 
   return (
@@ -75,9 +76,24 @@ const BoardView = () => {
         {cells}
         {tiles}
         <GameOverlay onRestart={resetGame} board={board} />
+        <div className="how_to_play">
+        To play the 2048 game, follow these simple rules:
+        <br />
+        You have a 4x4 grid.
+        <br />
+        Use your arrow keys to move the tiles left, right, up, or down.
+        <br />
+        When two tiles with the same number touch, they combine and grow.
+        <br />
+        The goal is to reach the elusive 2048 tile.
+        </div>
       </div>
     </div>
   );
 };
 
 export default BoardView;
+
+
+
+
