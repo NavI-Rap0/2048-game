@@ -46,7 +46,7 @@ const resetGame = () => {
         <div>
             <div className="details-box">
                 <div className="resetButton" onClick={resetGame}>
-                    New Game
+                    NEW GAME
                 </div>
                 <div className="score-box">
                         <div className="score-header">
