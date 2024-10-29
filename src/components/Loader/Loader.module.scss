@@ -7,10 +7,9 @@
     font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
 }
 .Loager {
-
     color: var(--fg);
     font: 1em/1.5 sans-serif;
-    height: 90vw;
+    height: 80vh;
     display: grid;
     place-items: center;
     transition: background-color 0.3s;
