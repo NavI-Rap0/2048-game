@@ -95,6 +95,7 @@
           animation-duration: 0.2s;
           animation-name: $name;
           animation-fill-mode: forwards;
+          
         }
   
         @keyframes #{$name} {
@@ -122,6 +123,7 @@
           animation-duration: 0.2s;
           animation-name: $name;
           animation-fill-mode: forwards;
+          
         }
   
         @keyframes #{$name} {
